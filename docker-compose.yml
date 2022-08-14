@@ -1,0 +1,16 @@
+---
+version: "2.1"
+services:
+  proxmark:
+    image: alperenchelik/proxmark:latest 
+    container_name: proxmark
+    environment:
+      - port=/dev/ttyACM0
+    restart: unless-stopped
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0"
+#networks:
+#  default:
+#    name: nginx-proxy-manager_default
+#    external: true
+

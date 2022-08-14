@@ -7,8 +7,9 @@ COPY . .
 WORKDIR proxmark3
 RUN make clean && make -j && make install && adduser root dialout
 
+ENV port=""
 
 #RUN git clone https://github.com/RfidResearchGroup/proxmark3.git && cd proxmark3 && make clean && make -j && adduser root dialout && make install
 
-CMD proxmark3 -p /dev/ttyACM0 -c "hf 14a reader"
+CMD proxmark3 -p $port -c "hf 14a reader"
 
